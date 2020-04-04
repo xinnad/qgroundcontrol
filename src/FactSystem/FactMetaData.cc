@@ -40,10 +40,11 @@ const char* FactMetaData::_jsonMetaDataFactsName =      "QGC.MetaData.Facts";
 
 // Built in translations for all Facts
 const FactMetaData::BuiltInTranslation_s FactMetaData::_rgBuiltInTranslations[] = {
-    { "centi-degrees",  "deg",  FactMetaData::_centiDegreesToDegrees,                   FactMetaData::_degreesToCentiDegrees },
-    { "radians",        "deg",  FactMetaData::_radiansToDegrees,                        FactMetaData::_degreesToRadians },
-    { "gimbal-degrees", "deg",  FactMetaData::_mavlinkGimbalDegreesToUserGimbalDegrees, FactMetaData::_userGimbalDegreesToMavlinkGimbalDegrees },
-    { "norm",           "%",    FactMetaData::_normToPercent,                           FactMetaData::_percentToNorm },
+    { "centi-degrees",              "deg",  FactMetaData::_centiDegreesToDegrees,                               FactMetaData::_degreesToCentiDegrees },
+    { "gimbal-pitch-centi-degrees", "deg",  FactMetaData::_mavlinkGimbalCentiDegreesToUserGimbalPitchDegrees,   FactMetaData::_userGimbalPitchDegreesToMavlinkGimbalCentiDegrees }, ///< Changes from user: 0 to 90 to mavlink: 0 to -9000
+    { "radians",                    "deg",  FactMetaData::_radiansToDegrees,                                    FactMetaData::_degreesToRadians },
+    { "gimbal-pitch-degrees",       "deg",  FactMetaData::_mavlinkGimbalDegreesToUserGimbalPitchDegrees,        FactMetaData::_userGimbalPitchDegreesToMavlinkGimbalDegrees }, ///> Changes from user: 0 to 90 to mavlink: 0 to -90
+    { "norm",                       "%",    FactMetaData::_normToPercent,                                       FactMetaData::_percentToNorm },
 };
 
 // Translations driven by app settings
@@ -656,18 +657,32 @@ QVariant FactMetaData::_degreesToCentiDegrees(const QVariant& degrees)
     return QVariant(qRound(degrees.toReal() * 100.0));
 }
 
-QVariant FactMetaData::_userGimbalDegreesToMavlinkGimbalDegrees(const QVariant& userGimbalDegrees)
+QVariant FactMetaData::_userGimbalPitchDegreesToMavlinkGimbalDegrees(const QVariant& userGimbalDegrees)
 {
     // User facing gimbal degree values are from 0 (level) to 90 (straight down)
     // Mavlink gimbal degree values are from 0 (level) to -90 (straight down)
     return userGimbalDegrees.toDouble() * -1.0;
 }
 
-QVariant FactMetaData::_mavlinkGimbalDegreesToUserGimbalDegrees(const QVariant& mavlinkGimbalDegrees)
+QVariant FactMetaData::_userGimbalPitchDegreesToMavlinkGimbalCentiDegrees(const QVariant& userGimbalDegrees)
+{
+    // User facing gimbal degree values are from 0 (level) to 90 (straight down)
+    // Mavlink gimbal degree values are from 0 (level) to -90 (straight down)
+    return userGimbalDegrees.toDouble() * 100 * -1.0;
+}
+
+QVariant FactMetaData::_mavlinkGimbalDegreesToUserGimbalPitchDegrees(const QVariant& mavlinkGimbalDegrees)
 {
     // User facing gimbal degree values are from 0 (level) to 90 (straight down)
     // Mavlink gimbal degree values are from 0 (level) to -90 (straight down)
     return mavlinkGimbalDegrees.toDouble() * -1.0;
+}
+
+QVariant FactMetaData::_mavlinkGimbalCentiDegreesToUserGimbalPitchDegrees(const QVariant& mavlinkGimbalCentiDegrees)
+{
+    // User facing gimbal degree values are from 0 (level) to 90 (straight down)
+    // Mavlink gimbal degree values are from 0 (level) to -90 (straight down)
+    return mavlinkGimbalCentiDegrees.toDouble() / 100 * -1.0;
 }
 
 QVariant FactMetaData::_metersToFeet(const QVariant& meters)

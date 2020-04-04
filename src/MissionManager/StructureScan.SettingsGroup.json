@@ -1,9 +1,9 @@
 [
 {
     "name":             "GimbalPitch",
-    "shortDescription": "Gimbal pitch rotation.",
+    "shortDescription": "Gimbal pitch rotation. 0 indicates level with horizon, 90 indicates pointing straight down.",
     "type":             "double",
-    "units":            "gimbal-degrees",
+    "units":            "gimbal-pitch-degrees",
     "min":              -90,
     "max":              0,
     "decimalPlaces":    0,

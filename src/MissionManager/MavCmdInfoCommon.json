@@ -825,7 +825,7 @@
             "param1": {
                 "label":            "Lat/Pitch",
                 "default":          0,
-                "units":            "deg",
+                "units":            "gimbal-pitch-degrees",
                 "decimalPlaces":    7
             },
             "param2": {

@@ -95,7 +95,7 @@
             "param1": {
                 "label":            "Pitch",
                 "default":          0,
-                "units":            "deg",
+                "units":            "gimbal-pitch-centi-degrees",
                 "decimalPlaces":    2
             },
             "param2": {

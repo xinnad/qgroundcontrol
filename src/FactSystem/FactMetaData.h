@@ -183,8 +183,10 @@ private:
     static QVariant _radiansToDegrees(const QVariant& radians);
     static QVariant _centiDegreesToDegrees(const QVariant& centiDegrees);
     static QVariant _degreesToCentiDegrees(const QVariant& degrees);
-    static QVariant _userGimbalDegreesToMavlinkGimbalDegrees(const QVariant& userGimbalDegrees);
-    static QVariant _mavlinkGimbalDegreesToUserGimbalDegrees(const QVariant& mavlinkGimbalDegrees);
+    static QVariant _userGimbalPitchDegreesToMavlinkGimbalDegrees(const QVariant& userGimbalPitchDegrees);
+    static QVariant _mavlinkGimbalDegreesToUserGimbalPitchDegrees(const QVariant& mavlinkGimbalDegrees);
+    static QVariant _userGimbalPitchDegreesToMavlinkGimbalCentiDegrees(const QVariant& userGimbalPitchDegrees);
+    static QVariant _mavlinkGimbalCentiDegreesToUserGimbalPitchDegrees(const QVariant& mavlinkGimbalCentiDegrees);
     static QVariant _metersToFeet(const QVariant& meters);
     static QVariant _feetToMeters(const QVariant& feet);
     static QVariant _squareMetersToSquareKilometers(const QVariant& squareMeters);
