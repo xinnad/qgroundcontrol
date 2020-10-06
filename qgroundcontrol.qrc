@@ -213,6 +213,7 @@
         <file alias="QGroundControl/FlightDisplay/GuidedActionsController.qml">src/FlightDisplay/GuidedActionsController.qml</file>
         <file alias="QGroundControl/FlightDisplay/GuidedActionLand.qml">src/FlightDisplay/GuidedActionLand.qml</file>
         <file alias="QGroundControl/FlightDisplay/GuidedActionList.qml">src/FlightDisplay/GuidedActionList.qml</file>
+        <file alias="QGroundControl/FlightDisplay/GuidedActionDive.qml">src/FlightDisplay/GuidedActionDive.qml</file>
         <file alias="QGroundControl/FlightDisplay/GuidedActionTakeoff.qml">src/FlightDisplay/GuidedActionTakeoff.qml</file>
         <file alias="QGroundControl/FlightDisplay/GuidedActionPause.qml">src/FlightDisplay/GuidedActionPause.qml</file>
         <file alias="QGroundControl/FlightDisplay/GuidedActionRTL.qml">src/FlightDisplay/GuidedActionRTL.qml</file>

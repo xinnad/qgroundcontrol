@@ -25,6 +25,7 @@ add_custom_target(FligthDisplayQml
 		GuidedActionPause.qml
 		GuidedActionRTL.qml
 		GuidedActionsController.qml
+		GuidedActionDive.qml
 		GuidedActionTakeoff.qml
 		GuidedAltitudeSlider.qml
 		GuidedToolStripAction.qml
